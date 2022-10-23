@@ -28,7 +28,7 @@ RUN apt-key add /tmp/linux_signing_key.pub \
 
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
-	&& useradd -m -G pulse-access chrome \
+	&& useradd -m -G chrome-remote-desktop,pulse-access chrome \
 	&& usermod -s /bin/bash chrome \
 	&& ln -s /crdonly /usr/local/sbin/crdonly \
 	&& ln -s /update /usr/local/sbin/update \
