@@ -22,13 +22,13 @@ ADD https://dl.google.com/linux/linux_signing_key.pub \
 	/tmp/
 
 RUN apt-key add /tmp/linux_signing_key.pub \
-	&& dpkg -i /tmp/google-chrome-stable_current_amd64.deb \
-	|| dpkg -i /tmp/chrome-remote-desktop_current_amd64.deb \
-	|| apt-get -f --yes install
+        && apt update -y \
+	&& apt install -y /tmp/google-chrome-stable_current_amd64.deb \
+	&& apt install -y /tmp/chrome-remote-desktop_current_amd64.deb
 
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
-	&& useradd -m -G chrome-remote-desktop,pulse-access chrome \
+	&& useradd -m -G pulse-access chrome \
 	&& usermod -s /bin/bash chrome \
 	&& ln -s /crdonly /usr/local/sbin/crdonly \
 	&& ln -s /update /usr/local/sbin/update \
