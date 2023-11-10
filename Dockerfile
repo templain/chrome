@@ -4,6 +4,8 @@ LABEL maintainer="Tomohisa Kusano <siomiz@gmail.com>"
 
 ENV VNC_SCREEN_SIZE 1024x768
 
+ENV DEBIAN_FRONTEND noninteractive
+
 COPY copyables /
 
 RUN apt-get update \
