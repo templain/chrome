@@ -18,6 +18,8 @@ RUN apt-get update \
 	fluxbox \
 	eterm
 
+RUN apt install -y software-properties-common && add-apt-repository ppa:ubuntu-toolchain-r/test
+
 ADD https://dl.google.com/linux/linux_signing_key.pub \
 	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 	https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb \
