@@ -4,7 +4,7 @@ services:
   chrome:
     build: .
     environment:
-      VNC_PASSWORD=password
+      - VNC_PASSWORD=password
     ports:
       - "15900:5900"
 
